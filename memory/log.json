@@ -1,0 +1,110 @@
+[
+    {
+        "data": "2025-04-09 11:05:44",
+        "acao": "abrir",
+        "conteudo": "valora",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-09 11:06:17",
+        "acao": "abrir",
+        "conteudo": "marvel",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-09 11:09:09",
+        "acao": "abrir",
+        "conteudo": "marvel r",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 11:10:11",
+        "acao": "abrir",
+        "conteudo": "marvel",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 11:11:02",
+        "acao": "abrir",
+        "conteudo": "every",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 11:11:23",
+        "acao": "abrir",
+        "conteudo": "marvel",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-09 11:12:58",
+        "acao": "abrir",
+        "conteudo": "marvel r",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 11:13:40",
+        "acao": "abrir",
+        "conteudo": "",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 11:14:08",
+        "acao": "abrir",
+        "conteudo": "marvel",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 11:15:30",
+        "acao": "abrir",
+        "conteudo": "marvel",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 11:16:14",
+        "acao": "abrir",
+        "conteudo": "marvel",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-09 11:18:12",
+        "acao": "abrir",
+        "conteudo": "marvel",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 11:19:54",
+        "acao": "abrir",
+        "conteudo": "marvel",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-09 11:21:40",
+        "acao": "abrir",
+        "conteudo": "marvel",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 12:34:27",
+        "acao": "abrir",
+        "conteudo": "valo",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-09 12:34:45",
+        "acao": "hora",
+        "conteudo": "12:34",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-09 12:34:59",
+        "acao": "pesquisar",
+        "conteudo": "sobre o meta atual",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-09 12:35:13",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    }
+]
