@@ -1,7 +1,7 @@
 import pyttsx3
 import speech_recognition as sr
-from tools.browser import search_google
-from tools.apps import open_app
+from tools.browser import search_google, search_youtube
+from tools.apps import open_app, fechar_app
 from tools.time_utils import get_time, get_date
 from tools.notes import save_note, read_notes
 from tools.wakeword import listen_for_wakeword
@@ -9,6 +9,7 @@ import time
 import json
 from datetime import datetime
 import os
+import webbrowser  # para abrir URLs no navegador
 
 # Iniciar engine de voz
 engine = pyttsx3.init()
@@ -21,9 +22,12 @@ def speak(text):
 
 def listen():
     recognizer = sr.Recognizer()
+    recognizer.pause_threshold = 2
+
     with sr.Microphone() as source:
         print("Escutando comando...")
         audio = recognizer.listen(source)
+
     try:
         command = recognizer.recognize_google(audio, language="pt-BR").lower()
         print("Você disse:", command)
@@ -56,8 +60,34 @@ def registrar_log(acao, conteudo, resultado="sucesso", arquivo='memory/log.json'
     with open(arquivo, 'w', encoding='utf-8') as f:
         json.dump(logs, f, indent=4, ensure_ascii=False)
 
+def tocar_musica(query, plataforma="youtube"):
+    if plataforma == "spotify":
+        url = f"https://open.spotify.com/search/{query.replace(' ', '%20')}"
+    else:
+        url = f"https://music.youtube.com/search?q={query.replace(' ', '+')}"
+
+    webbrowser.open(url)
+    return f"Tocando {query} no {plataforma.capitalize()}"
+
 def handle_command(command):
-    if "pesquisar" in command:
+    if "youtube" in command and "pesquisar" in command:
+        speak("O que você quer que eu procure no YouTube?")
+        query = ""
+        tentativas = 0
+
+        while not query and tentativas < 2:
+            query = listen()
+            tentativas += 1
+
+        if query:
+            speak(f"Pesquisando por {query} no YouTube.")
+            registrar_log("pesquisar_youtube", query)
+            search_youtube(query)
+        else:
+            speak("Desculpe, não consegui entender o que você quer pesquisar.")
+            registrar_log("pesquisar_youtube", "", "falha")
+
+    elif "pesquisar" in command:
         speak("O que você quer que eu pesquise?")
         query = ""
         tentativas = 0
@@ -73,6 +103,24 @@ def handle_command(command):
         else:
             speak("Desculpe, não consegui entender o que você quer pesquisar.")
             registrar_log("pesquisar", "", "falha")
+
+    elif "tocar" in command or "toque" in command:
+        plataforma = "youtube"
+        if "spotify" in command:
+            plataforma = "spotify"
+        musica = command.replace("toque", "").replace("tocar", "").replace("no spotify", "").replace("no youtube", "").strip()
+
+        if not musica:
+            speak("Qual música você quer ouvir?")
+            musica = listen()
+
+        if musica:
+            resposta = tocar_musica(musica, plataforma)
+            speak(resposta)
+            registrar_log("tocar_musica", f"{musica} - {plataforma}")
+        else:
+            speak("Desculpe, não entendi a música.")
+            registrar_log("tocar_musica", "", "falha")
 
     elif "abrir" in command:
         while True:
@@ -93,6 +141,20 @@ def handle_command(command):
                     break
             else:
                 break
+
+    elif "fechar" in command:
+        app_name = command.replace("fechar", "").strip()
+        if not app_name:
+            speak("Qual aplicativo você deseja fechar?")
+            app_name = listen()
+
+        if app_name:
+            resposta = fechar_app(app_name)
+            speak(resposta)
+            registrar_log("fechar", app_name, "sucesso" if "foi fechado" in resposta else "falha")
+        else:
+            speak("Não entendi o nome do aplicativo.")
+            registrar_log("fechar", "", "falha")
 
     elif "horas" in command or "hora" in command:
         hora = get_time()
@@ -126,11 +188,10 @@ def handle_command(command):
         speak("Não entendi o comando.")
         registrar_log("comando desconhecido", command, "falha")
 
-speak("Roonie está pronto. Diga 'Acorde' para ativar.")
+speak("Roonie está pronto. Diga 'Bom Dia' para ativar.")
 
-# Aguarda uma vez só e permanece acordado depois
 while True:
-    if listen_for_wakeword("acorde"):
+    if listen_for_wakeword("bom dia"):
         speak("Estou ouvindo, diga o comando.")
         while True:
             comando = listen()

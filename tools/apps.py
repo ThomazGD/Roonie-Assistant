@@ -1,6 +1,7 @@
 import os
 import json
 import subprocess
+import psutil
 
 def open_app(nome_app, arquivo_games='games.json'):
     if not os.path.exists(arquivo_games):
@@ -44,3 +45,27 @@ def abrir_jogo(jogo):
         return f"Abrindo {jogo['nome']}"
     except Exception as e:
         return f"Ocorreu um erro ao tentar abrir {jogo['nome']}: {str(e)}"
+    
+    #Fechar APPs
+
+    
+
+
+def fechar_app(nome_app):
+    nome_app = nome_app.lower().strip()
+    processos_finalizados = 0
+
+    for proc in psutil.process_iter(['name']):
+        try:
+            if nome_app in proc.info['name'].lower():
+                proc.terminate()
+                processos_finalizados += 1
+        except (psutil.NoSuchProcess, psutil.AccessDenied):
+            continue
+
+    if processos_finalizados > 0:
+        return f"{processos_finalizados} instância(s) de '{nome_app}' foram encerradas."
+    else:
+        return f"Nenhum processo correspondente a '{nome_app}' foi encontrado."
+
+
