@@ -502,5 +502,257 @@
         "acao": "encerrar",
         "conteudo": "Roonie desligado",
         "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-09 22:45:46",
+        "acao": "abrir",
+        "conteudo": "valora",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-09 22:45:59",
+        "acao": "comando desconhecido",
+        "conteudo": "agora calma que tá abrindo calma que eu percebi",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 22:46:12",
+        "acao": "abrir",
+        "conteudo": "mano ele continuou dando tá ligado que nem você fala",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 22:46:26",
+        "acao": "abrir",
+        "conteudo": "spotify",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-09 22:46:42",
+        "acao": "fechar",
+        "conteudo": "estava fechada aí calma calma",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 22:47:01",
+        "acao": "fechar",
+        "conteudo": "spotify",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 22:47:09",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-09 22:56:38",
+        "acao": "comando desconhecido",
+        "conteudo": "me explica aquecimento global",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 22:56:49",
+        "acao": "comando desconhecido",
+        "conteudo": "me explica inteligência inteligência artificial",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-09 22:56:58",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-09 23:02:42",
+        "acao": "resumo_wikipedia",
+        "conteudo": "aquecimento global  aquecimento global",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-09 23:02:51",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:01:48",
+        "acao": "resumo_wikipedia",
+        "conteudo": "me   valor",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:02:01",
+        "acao": "resumo_wikipedia",
+        "conteudo": "me   valorant",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:02:10",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:04:22",
+        "acao": "resumo_wikipedia",
+        "conteudo": "sobre valorant  sobre o valorant",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:04:31",
+        "acao": "resumo_wikipedia",
+        "conteudo": "me  sobre valora",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:04:48",
+        "acao": "resumo_wikipedia",
+        "conteudo": "valor",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:04:59",
+        "acao": "resumo_wikipedia",
+        "conteudo": "o jogo valo",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:05:09",
+        "acao": "resumo_wikipedia",
+        "conteudo": "o jogo vora",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:05:19",
+        "acao": "resumo_wikipedia",
+        "conteudo": "o jogo valo",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:07:11",
+        "acao": "resumo_wikipedia",
+        "conteudo": "valora",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:07:27",
+        "acao": "resumo_wikipedia",
+        "conteudo": "valora",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:07:42",
+        "acao": "resumo_wikipedia",
+        "conteudo": "tecno",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:08:55",
+        "acao": "resumo_wikipedia",
+        "conteudo": "o jogo",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:09:07",
+        "acao": "resumo_wikipedia",
+        "conteudo": "o jogo marvel r",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:09:19",
+        "acao": "resumo_wikipedia",
+        "conteudo": "o conceito de jogo",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:11:32",
+        "acao": "resumo_wikipedia",
+        "conteudo": "valorant",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:12:21",
+        "acao": "pesquisa_wikipedia",
+        "conteudo": "valora",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:12:48",
+        "acao": "resumo_wikipedia",
+        "conteudo": "valora",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:12:59",
+        "acao": "comando desconhecido",
+        "conteudo": "foi que criou o google",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 00:13:06",
+        "acao": "pesquisa_wikipedia",
+        "conteudo": "quem criou o google",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 00:13:11",
+        "acao": "resumo_wikipedia",
+        "conteudo": "quem criou o google",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:13:20",
+        "acao": "resumo_wikipedia",
+        "conteudo": "",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 00:13:26",
+        "acao": "pesquisa_wikipedia",
+        "conteudo": "que fundou",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 00:13:31",
+        "acao": "resumo_wikipedia",
+        "conteudo": "que fundou",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:13:37",
+        "acao": "pesquisa_wikipedia",
+        "conteudo": "que fundou microsoft",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 00:13:42",
+        "acao": "resumo_wikipedia",
+        "conteudo": "que fundou microsoft",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:13:49",
+        "acao": "pesquisa_wikipedia",
+        "conteudo": "microso",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 00:13:54",
+        "acao": "resumo_wikipedia",
+        "conteudo": "microso",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 00:14:04",
+        "acao": "pesquisa_wikipedia",
+        "conteudo": "a segunda guerra mundial",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 00:14:09",
+        "acao": "resumo_wikipedia",
+        "conteudo": "a segunda guerra mundial",
+        "resultado": "sucesso"
     }
 ]

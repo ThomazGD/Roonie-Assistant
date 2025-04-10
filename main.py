@@ -5,6 +5,7 @@ from tools.apps import open_app, fechar_app
 from tools.time_utils import get_time, get_date
 from tools.notes import save_note, read_notes
 from tools.wakeword import listen_for_wakeword
+from tools.wiki_searcher import resumo_wikipedia
 import time
 import json
 from datetime import datetime
@@ -70,7 +71,24 @@ def tocar_musica(query, plataforma="youtube"):
     return f"Tocando {query} no {plataforma.capitalize()}"
 
 def handle_command(command):
-    if "youtube" in command and "pesquisar" in command:
+    if any(frase in command for frase in ["me explica", "o que é", "quem foi", "quem é", "explique"]):
+        termo = (
+            command.replace("me explica", "")
+                   .replace("o que é", "")
+                   .replace("quem foi", "")
+                   .replace("quem é", "")
+                   .replace("explique", "")
+                   .strip()
+        )
+        if termo:
+            resposta = resumo_wikipedia(termo)
+            speak(resposta)
+            registrar_log("resumo_wikipedia", termo)
+        else:
+            speak("Desculpe, não entendi o que você quer que eu explique.")
+            registrar_log("resumo_wikipedia", "", "falha")
+
+    elif "youtube" in command and "pesquisar" in command:
         speak("O que você quer que eu procure no YouTube?")
         query = ""
         tentativas = 0
@@ -188,6 +206,7 @@ def handle_command(command):
         speak("Não entendi o comando.")
         registrar_log("comando desconhecido", command, "falha")
 
+# Início do assistente
 speak("Roonie está pronto. Diga 'Bom Dia' para ativar.")
 
 while True:
