@@ -6,11 +6,16 @@ from tools.time_utils import get_time, get_date
 from tools.notes import save_note, read_notes
 from tools.wakeword import listen_for_wakeword
 from tools.wiki_searcher import resumo_wikipedia
+from tools.discord_sender import enviar_mensagem_discord
+from tools.whatsapp_sender import enviar_mensagem_whatsapp
+from voz import speak
 import time
 import json
 from datetime import datetime
 import os
-import webbrowser  # para abrir URLs no navegador
+import webbrowser 
+from collections import defaultdict, Counter
+from difflib import get_close_matches
 
 # Iniciar engine de voz
 engine = pyttsx3.init()
@@ -61,6 +66,34 @@ def registrar_log(acao, conteudo, resultado="sucesso", arquivo='memory/log.json'
     with open(arquivo, 'w', encoding='utf-8') as f:
         json.dump(logs, f, indent=4, ensure_ascii=False)
 
+def feedback_sucesso(acao, conteudo):
+    speak("Isso funcionou como esperado?")
+    resposta = listen()
+    if "não" in resposta:
+        registrar_log(acao, conteudo, "falha")
+        speak("Obrigado pelo feedback, vou tentar melhorar.")
+    elif "sim" in resposta:
+        registrar_log(acao, conteudo, "sucesso")
+        speak("Ótimo!")
+    else:
+        registrar_log(acao, conteudo, "neutro")
+        speak("Entendido.")
+
+
+def sugerir_correcao_comando(comando_usuario):
+    if not os.path.exists('memory/log.json'):
+        return None
+
+    with open('memory/log.json', 'r', encoding='utf-8') as f:
+        logs = json.load(f)
+
+    comandos_sucesso = [log['conteudo'] for log in logs if log['resultado'] == 'sucesso']
+    sugestoes = get_close_matches(comando_usuario, comandos_sucesso, n=1, cutoff=0.6)
+
+    if sugestoes:
+        return sugestoes[0]
+    return None   
+
 def tocar_musica(query, plataforma="youtube"):
     if plataforma == "spotify":
         url = f"https://open.spotify.com/search/{query.replace(' ', '%20')}"
@@ -69,6 +102,35 @@ def tocar_musica(query, plataforma="youtube"):
 
     webbrowser.open(url)
     return f"Tocando {query} no {plataforma.capitalize()}"
+
+def modo_pausa():
+    speak("Roonie entrou em modo de descanso. Diga 'bom dia' para me chamar novamente.")
+    while True:
+        with sr.Microphone() as source:  # Desabilitar o "print" de escuta e não mostrar nada
+            recognizer = sr.Recognizer()
+            recognizer.pause_threshold = 2
+            audio = recognizer.listen(source)
+    
+        try:
+            comando = recognizer.recognize_google(audio, language="pt-BR").lower()
+        except sr.UnknownValueError:
+            comando = ""
+        except sr.RequestError:
+            comando = ""
+
+        if "bom dia" in comando:  # Quando o 'bom dia' for detectado, ele sai do modo de pausa
+            speak("Estou acordado. Como posso ajudar?")
+            return  # Sai do modo de pausa e volta para o loop normal
+        time.sleep(1)  # Um pequeno delay para não sobrecarregar a CPU
+
+def listen_for_wakeword(palavra_chave):
+    # Implementar escuta contínua para palavra-chave
+    while True:
+        comando = listen()
+        if palavra_chave in comando:
+            return True
+        time.sleep(1)
+ #FUNCIONALIDADES
 
 def handle_command(command):
     if any(frase in command for frase in ["me explica", "o que é", "quem foi", "quem é", "explique"]):
@@ -92,7 +154,6 @@ def handle_command(command):
         speak("O que você quer que eu procure no YouTube?")
         query = ""
         tentativas = 0
-
         while not query and tentativas < 2:
             query = listen()
             tentativas += 1
@@ -109,7 +170,6 @@ def handle_command(command):
         speak("O que você quer que eu pesquise?")
         query = ""
         tentativas = 0
-
         while not query and tentativas < 2:
             query = listen()
             tentativas += 1
@@ -126,6 +186,7 @@ def handle_command(command):
         plataforma = "youtube"
         if "spotify" in command:
             plataforma = "spotify"
+
         musica = command.replace("toque", "").replace("tocar", "").replace("no spotify", "").replace("no youtube", "").strip()
 
         if not musica:
@@ -162,11 +223,22 @@ def handle_command(command):
 
     elif "fechar" in command:
         app_name = command.replace("fechar", "").strip()
+
         if not app_name:
             speak("Qual aplicativo você deseja fechar?")
             app_name = listen()
 
         if app_name:
+            sugestao = sugerir_correcao_comando(app_name)
+            if sugestao and sugestao != app_name:
+                speak(f"Você quis dizer '{sugestao}'? Posso tentar fechar isso.")
+                confirmacao = listen()
+                if "sim" in confirmacao:
+                    app_name = sugestao
+                else:
+                    speak("Ok, não vou executar.")
+                    return
+
             resposta = fechar_app(app_name)
             speak(resposta)
             registrar_log("fechar", app_name, "sucesso" if "foi fechado" in resposta else "falha")
@@ -197,6 +269,8 @@ def handle_command(command):
         speak(anotações)
         registrar_log("ler anotações", anotações)
 
+    if "descansar" in command or "pausar" in command:
+        modo_pausa()
     elif "encerrar" in command or "tchau roonie" in command:
         speak("Até logo! Encerrando o assistente.")
         registrar_log("encerrar", "Roonie desligado")
@@ -206,6 +280,7 @@ def handle_command(command):
         speak("Não entendi o comando.")
         registrar_log("comando desconhecido", command, "falha")
 
+
 # Início do assistente
 speak("Roonie está pronto. Diga 'Bom Dia' para ativar.")
 
@@ -214,5 +289,50 @@ while True:
         speak("Estou ouvindo, diga o comando.")
         while True:
             comando = listen()
-            if comando:
+            if not comando:
+                speak("Não entendi o que foi dito.")
+                continue
+
+            # Encerrar diretamente
+            if "encerrar" in comando or "tchau roonie" in comando:
+                speak("Até logo! Encerrando o assistente.")
+                registrar_log("encerrar", "Roonie desligado")
+                exit()
+            # Comando de pausa
+            elif "descansar" in comando or "pausar" in comando:
+                modo_pausa()  # Ativa o modo de descanso e fica aguardando o 'bom dia' para voltar
+
+            # Correção de comando se necessário
+            correcao = sugerir_correcao_comando(comando)
+            if correcao and correcao != comando:
+                speak(f"Você quis dizer '{correcao}'? Posso tentar executar isso.")
+                confirmacao = listen()
+                if "sim" in confirmacao:
+                    comando = correcao
+                else:
+                    speak("Ok, não vou executar.")
+                    continue
+
+            # Tratar fechamento de aplicativo com correção
+            if "fechar" in comando:
+                app_name = comando.replace("fechar", "").strip()
+                while not app_name:
+                    speak("Qual aplicativo você deseja fechar?")
+                    app_name = listen()
+
+                sugestao_app = sugerir_correcao_comando(app_name)
+                if sugestao_app and sugestao_app != app_name:
+                    speak(f"Você quis dizer '{sugestao_app}'? Posso tentar fechar isso.")
+                    confirmacao = listen()
+                    if "sim" in confirmacao:
+                        app_name = sugestao_app
+                    else:
+                        speak("Ok, não vou executar.")
+                        continue
+
+                resposta = fechar_app(app_name)
+                speak(resposta)
+                registrar_log("fechar", app_name, "sucesso" if "foi fechado" in resposta else "falha")
+            else:
                 handle_command(comando)
+                speak("Deseja fazer mais alguma coisa?")

@@ -754,5 +754,341 @@
         "acao": "resumo_wikipedia",
         "conteudo": "a segunda guerra mundial",
         "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 13:33:49",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "me  sobre o jogo valora",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 13:34:06",
+        "acao": "resumo_wikipedia",
+        "conteudo": "me  sobre o jogo valora",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 13:34:16",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "me   octa sho",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 13:34:32",
+        "acao": "resumo_wikipedia",
+        "conteudo": "me   octa sho",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 13:34:45",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 13:35:30",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "sobre o jogo valorant",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 13:35:46",
+        "acao": "resumo_wikipedia",
+        "conteudo": "sobre o jogo valorant",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 13:35:58",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 14:05:25",
+        "acao": "mensagem_discord",
+        "conteudo": "união frasco - teste - boa tarde",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 14:06:46",
+        "acao": "comando desconhecido",
+        "conteudo": "135.0",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 14:06:54",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 14:22:39",
+        "acao": "enviar_whatsapp",
+        "conteudo": "thomas f: ",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 14:23:23",
+        "acao": "enviar_whatsapp",
+        "conteudo": "dr thomaz f: este é um teste de uma mensagem",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 14:24:55",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 14:28:31",
+        "acao": "enviar_whatsapp",
+        "conteudo": "thomas f: esta é uma mensagem teste",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 14:28:37",
+        "acao": "comando desconhecido",
+        "conteudo": "não funciona",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 14:28:45",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 15:18:24",
+        "acao": "comando desconhecido",
+        "conteudo": "mensagem por whatsapp",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 15:18:33",
+        "acao": "comando desconhecido",
+        "conteudo": "mensagem whatsapp",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 15:20:02",
+        "acao": "enviar_whatsapp",
+        "conteudo": "para tom: teste",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 15:21:53",
+        "acao": "comando desconhecido",
+        "conteudo": "mandar no whatsapp",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 15:23:09",
+        "acao": "comando desconhecido",
+        "conteudo": "mensagem",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 15:27:12",
+        "acao": "comando desconhecido",
+        "conteudo": "mensagem no",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 15:49:42",
+        "acao": "abrir",
+        "conteudo": "valorant",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-10 15:50:17",
+        "acao": "fechar",
+        "conteudo": "valora",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 15:53:08",
+        "acao": "fechar",
+        "conteudo": "valora",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 15:55:44",
+        "acao": "fechar",
+        "conteudo": "valora",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 15:58:45",
+        "acao": "fechar",
+        "conteudo": "valo",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 16:00:33",
+        "acao": "fechar",
+        "conteudo": "valora",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 16:02:58",
+        "acao": "fechar",
+        "conteudo": "",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 16:08:05",
+        "acao": "fechar",
+        "conteudo": "valoran",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 16:11:37",
+        "acao": "fechar",
+        "conteudo": "valora",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-10 16:16:10",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-11 13:33:31",
+        "acao": "abrir",
+        "conteudo": "valorant",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-11 13:33:34",
+        "acao": "fechar",
+        "conteudo": "",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-11 13:33:45",
+        "acao": "abrir",
+        "conteudo": "abriu",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-11 13:33:48",
+        "acao": "fechar",
+        "conteudo": "",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-11 13:34:44",
+        "acao": "pesquisar",
+        "conteudo": "meta atual do valorant 2025",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-11 13:35:38",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-11 13:36:22",
+        "acao": "tocar_musica",
+        "conteudo": "eu quero ver musica de link linkin park - youtube",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-12 18:55:30",
+        "acao": "pesquisar",
+        "conteudo": "competição cão",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-12 18:56:09",
+        "acao": "pesquisar",
+        "conteudo": "sorvete",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-12 18:57:32",
+        "acao": "tocar_musica",
+        "conteudo": "",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-12 18:59:54",
+        "acao": "tocar_musica",
+        "conteudo": "judas da lady gaga - spotify",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-12 19:03:34",
+        "acao": "tocar_musica",
+        "conteudo": "eu acho que eu vou botar um vídeo ficou chateado que ele até mostrou o dedo do meio para tomar se eu falei ó você viu quem chamou você de manuela foi ele eu estou quieta quer dizer alguma coisa em sua defesa sou inocente entendeu ela tá me prendendo não veio me salvar pode deixar aqui estou onde quero estar preso na sua própria - youtube",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-12 19:05:22",
+        "acao": "tocar_musica",
+        "conteudo": "aquela mulher que quiser - youtube",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-12 19:06:12",
+        "acao": "tocar_musica",
+        "conteudo": "fala de novo - youtube",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-12 19:06:46",
+        "acao": "tocar_musica",
+        "conteudo": "gwen stephanie - youtube",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-14 15:51:04",
+        "acao": "pesquisar",
+        "conteudo": "futebol",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-14 15:53:56",
+        "acao": "tocar_musica",
+        "conteudo": "monster do player tauz - youtube",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-14 15:54:05",
+        "acao": "comando desconhecido",
+        "conteudo": "sim",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-14 15:54:25",
+        "acao": "abrir",
+        "conteudo": "spotify",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-14 15:54:44",
+        "acao": "fechar",
+        "conteudo": "spotify",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-14 15:54:52",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-14 16:02:22",
+        "acao": "pesquisar",
+        "conteudo": "basquete",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-14 16:02:38",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
     }
 ]
