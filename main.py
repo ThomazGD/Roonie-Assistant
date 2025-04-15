@@ -8,6 +8,7 @@ from tools.wakeword import listen_for_wakeword
 from tools.wiki_searcher import resumo_wikipedia
 from tools.discord_sender import enviar_mensagem_discord
 from tools.whatsapp_sender import enviar_mensagem_whatsapp
+from tools.conversa_leve import conversa_leve
 from voz import speak
 import time
 import json
@@ -65,6 +66,26 @@ def registrar_log(acao, conteudo, resultado="sucesso", arquivo='memory/log.json'
 
     with open(arquivo, 'w', encoding='utf-8') as f:
         json.dump(logs, f, indent=4, ensure_ascii=False)
+
+def avaliar_comandos(arquivo='memory/log.json'):
+    if not os.path.exists(arquivo):
+        return {}
+
+    with open(arquivo, 'r', encoding='utf-8') as f:
+        try:
+            logs = json.load(f)
+        except json.JSONDecodeError:
+            return {}
+
+    avaliacao = defaultdict(lambda: {"sucesso": 0, "falha": 0, "neutro": 0})
+
+    for log in logs:
+        chave = f"{log['acao']} {log['conteudo']}".strip().lower()
+        resultado = log.get("resultado", "neutro").lower()
+        if resultado in avaliacao[chave]:
+            avaliacao[chave][resultado] += 1
+
+    return dict(avaliacao)
 
 def feedback_sucesso(acao, conteudo):
     speak("Isso funcionou como esperado?")
@@ -128,11 +149,13 @@ def listen_for_wakeword(palavra_chave):
     while True:
         comando = listen()
         if palavra_chave in comando:
-            return True
+            speak("Estou acordado. Como posso ajudar?")
+            return True  # Retorna para sair do loop de escuta, apenas após "bom dia"
         time.sleep(1)
  #FUNCIONALIDADES
 
 def handle_command(command):
+    # Verifique se o comando está na lista de comandos conhecidos
     if any(frase in command for frase in ["me explica", "o que é", "quem foi", "quem é", "explique"]):
         termo = (
             command.replace("me explica", "")
@@ -149,6 +172,10 @@ def handle_command(command):
         else:
             speak("Desculpe, não entendi o que você quer que eu explique.")
             registrar_log("resumo_wikipedia", "", "falha")
+
+    elif any(frase in command for frase in ["como você está", "vamos conversar", "me conte algo", "está tudo bem", "fala comigo"]):
+        resposta = conversa_leve(command)
+        speak(resposta)
 
     elif "youtube" in command and "pesquisar" in command:
         speak("O que você quer que eu procure no YouTube?")
@@ -182,45 +209,7 @@ def handle_command(command):
             speak("Desculpe, não consegui entender o que você quer pesquisar.")
             registrar_log("pesquisar", "", "falha")
 
-    elif "tocar" in command or "toque" in command:
-        plataforma = "youtube"
-        if "spotify" in command:
-            plataforma = "spotify"
-
-        musica = command.replace("toque", "").replace("tocar", "").replace("no spotify", "").replace("no youtube", "").strip()
-
-        if not musica:
-            speak("Qual música você quer ouvir?")
-            musica = listen()
-
-        if musica:
-            resposta = tocar_musica(musica, plataforma)
-            speak(resposta)
-            registrar_log("tocar_musica", f"{musica} - {plataforma}")
-        else:
-            speak("Desculpe, não entendi a música.")
-            registrar_log("tocar_musica", "", "falha")
-
-    elif "abrir" in command:
-        while True:
-            app_name = command.replace("abrir", "").strip()
-            if not app_name:
-                speak("Qual aplicativo você quer abrir?")
-                app_name = listen()
-
-            resposta = open_app(app_name)
-            speak(resposta)
-            registrar_log("abrir", app_name, "sucesso" if "Abrindo" in resposta else "falha")
-
-            if "não foi possível encontrar" in resposta.lower():
-                speak("Qual aplicativo você quer abrir?")
-                command = listen()
-                if not command:
-                    speak("Não entendi o aplicativo.")
-                    break
-            else:
-                break
-
+    # Comando de correção apenas quando falha
     elif "fechar" in command:
         app_name = command.replace("fechar", "").strip()
 
@@ -229,6 +218,7 @@ def handle_command(command):
             app_name = listen()
 
         if app_name:
+            # Chamando a sugestão de correção **somente quando o comando não for claro ou não for encontrado**
             sugestao = sugerir_correcao_comando(app_name)
             if sugestao and sugestao != app_name:
                 speak(f"Você quis dizer '{sugestao}'? Posso tentar fechar isso.")
@@ -269,8 +259,9 @@ def handle_command(command):
         speak(anotações)
         registrar_log("ler anotações", anotações)
 
-    if "descansar" in command or "pausar" in command:
+    elif "descansar" in command or "pausar" in command:
         modo_pausa()
+
     elif "encerrar" in command or "tchau roonie" in command:
         speak("Até logo! Encerrando o assistente.")
         registrar_log("encerrar", "Roonie desligado")
@@ -279,6 +270,8 @@ def handle_command(command):
     else:
         speak("Não entendi o comando.")
         registrar_log("comando desconhecido", command, "falha")
+
+    return 
 
 
 # Início do assistente
@@ -301,18 +294,8 @@ while True:
             # Comando de pausa
             elif "descansar" in comando or "pausar" in comando:
                 modo_pausa()  # Ativa o modo de descanso e fica aguardando o 'bom dia' para voltar
-
-            # Correção de comando se necessário
-            correcao = sugerir_correcao_comando(comando)
-            if correcao and correcao != comando:
-                speak(f"Você quis dizer '{correcao}'? Posso tentar executar isso.")
-                confirmacao = listen()
-                if "sim" in confirmacao:
-                    comando = correcao
-                else:
-                    speak("Ok, não vou executar.")
-                    continue
-
+                continue
+            
             # Tratar fechamento de aplicativo com correção
             if "fechar" in comando:
                 app_name = comando.replace("fechar", "").strip()
