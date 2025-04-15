@@ -17,6 +17,9 @@ import os
 import webbrowser 
 from collections import defaultdict, Counter
 from difflib import get_close_matches
+from pathlib import Path
+from datetime import datetime
+import sys
 
 # Iniciar engine de voz
 engine = pyttsx3.init()
@@ -44,8 +47,15 @@ def listen():
     except sr.RequestError:
         speak("Erro ao conectar com o serviço.")
     return ""
+def get_memory_path(filename):
+    base_path = os.path.dirname(os.path.abspath(__file__))  # Caminho da pasta onde está o script
+    memory_folder = os.path.join(base_path, "memory")
+    os.makedirs(memory_folder, exist_ok=True)  # Garante que a pasta exista
+    return os.path.join(memory_folder, filename)
 
-def registrar_log(acao, conteudo, resultado="sucesso", arquivo='memory/log.json'):
+def registrar_log(acao, conteudo, resultado="sucesso"):
+    arquivo = get_memory_path("log.json")
+
     entrada = {
         "data": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "acao": acao,
@@ -209,6 +219,25 @@ def handle_command(command):
             speak("Desculpe, não consegui entender o que você quer pesquisar.")
             registrar_log("pesquisar", "", "falha")
 
+    elif "abrir" in command:
+        while True:
+            app_name = command.replace("abrir", "").strip()
+            if not app_name:
+                speak("Qual aplicativo você quer abrir?")
+                app_name = listen()
+
+            resposta = open_app(app_name)
+            speak(resposta)
+            registrar_log("abrir", app_name, "sucesso" if "Abrindo" in resposta else "falha")
+
+            if "não foi possível encontrar" in resposta.lower():
+                speak("Qual aplicativo você quer abrir?")
+                command = listen()
+                if not command:
+                    speak("Não entendi o aplicativo.")
+                    break
+            else:
+                break
     # Comando de correção apenas quando falha
     elif "fechar" in command:
         app_name = command.replace("fechar", "").strip()
@@ -218,7 +247,6 @@ def handle_command(command):
             app_name = listen()
 
         if app_name:
-            # Chamando a sugestão de correção **somente quando o comando não for claro ou não for encontrado**
             sugestao = sugerir_correcao_comando(app_name)
             if sugestao and sugestao != app_name:
                 speak(f"Você quis dizer '{sugestao}'? Posso tentar fechar isso.")
@@ -265,14 +293,13 @@ def handle_command(command):
     elif "encerrar" in command or "tchau roonie" in command:
         speak("Até logo! Encerrando o assistente.")
         registrar_log("encerrar", "Roonie desligado")
-        exit()
+        sys.exit()
 
     else:
         speak("Não entendi o comando.")
         registrar_log("comando desconhecido", command, "falha")
 
     return 
-
 
 # Início do assistente
 speak("Roonie está pronto. Diga 'Bom Dia' para ativar.")

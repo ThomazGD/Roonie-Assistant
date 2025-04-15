@@ -8,7 +8,15 @@ from datetime import datetime
 GOOGLE_API_KEY = "AIzaSyDrNdj-Y78o1c2-JH3k9wZwUltDMt0gdqw"
 GOOGLE_CX = "103fdaa4b98794978"
 
-log_path = 'memory/log.json'
+def get_memory_path(filename):
+    base_path = os.path.dirname(os.path.abspath(__file__))  # tools/
+    base_path = os.path.abspath(os.path.join(base_path, ".."))  # volta para a raiz (roonie-assistant/)
+    memory_folder = os.path.join(base_path, "memory")
+    os.makedirs(memory_folder, exist_ok=True)
+    return os.path.join(memory_folder, filename)
+
+
+log_path = get_memory_path("log.json")
 
 
 def registrar_log(acao, conteudo, resultado="sucesso", arquivo=log_path):

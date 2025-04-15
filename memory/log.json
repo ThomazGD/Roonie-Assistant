@@ -1156,5 +1156,41 @@
         "acao": "encerrar",
         "conteudo": "Roonie desligado",
         "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-15 14:45:20",
+        "acao": "comando desconhecido",
+        "conteudo": "abrir",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-15 14:47:32",
+        "acao": "abrir",
+        "conteudo": "spotify",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-15 15:12:45",
+        "acao": "abrir",
+        "conteudo": "spotify",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-15 15:12:56",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-15 17:02:23",
+        "acao": "abrir",
+        "conteudo": "spotify",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-15 17:08:10",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
     }
 ]
