@@ -44,24 +44,39 @@ def registrar_log(acao, conteudo, resultado="sucesso", arquivo=log_path):
 
 def pesquisar_google(termo):
     try:
-        url = f"https://www.googleapis.com/customsearch/v1?q={termo}&key={GOOGLE_API_KEY}&cx={GOOGLE_CX}&hl=pt"
+        url = f"https://www.googleapis.com/customsearch/v1?q={termo}+site:br&key={GOOGLE_API_KEY}&cx={GOOGLE_CX}&hl=pt&gl=br"
         response = requests.get(url)
         data = response.json()
         if "items" in data:
-            snippet = data["items"][0].get("snippet", "")
-            return snippet
+            snippets = []
+            for item in data["items"][:1]:  # Limita para o primeiro item
+                snippet = item.get("snippet", "")
+                if snippet:
+                    snippets.append(snippet)
+            return ' '.join(snippets)
         return ""
-    except:
+    except Exception as e:
+        print(f"Erro ao pesquisar no Google: {e}")
         return ""
-
 
 def pesquisar_duckduckgo(termo):
     try:
-        response = requests.get(f"https://api.duckduckgo.com/?q={termo}&format=json&lang=pt")
+        response = requests.get(f"https://api.duckduckgo.com/?q={termo}+site:br&format=json&lang=pt")
         data = response.json()
-        resultado = data.get("Abstract") or data.get("RelatedTopics", [{}])[0].get("Text", "")
+        resultado = data.get("Abstract") or ""
+        related_topics = data.get("RelatedTopics", [])
+
+        # Limitar a quantidade de tópicos relacionados
+        for topic in related_topics[:1]:  # Limita para o primeiro tópico relacionado
+            resultado += " " + topic.get("Text", "")
+        
+        # Garantir que o texto esteja mais focado na pesquisa relevante
+        if termo.lower() not in resultado.lower():
+            return ""
+        
         return resultado
-    except:
+    except Exception as e:
+        print(f"Erro ao pesquisar no DuckDuckGo: {e}")
         return ""
 
 
@@ -70,9 +85,10 @@ def pesquisar_wikipedia(termo):
     pagina = wiki_wiki.page(termo)
 
     if pagina.exists():
-        resumo = pagina.summary.split(". ")[0:2]
+        resumo = pagina.summary.split(". ")[:5]  # Limita para 2 frases
         return ' '.join(resumo)
     return ""
+
 
 
 def escolher_melhor_resposta(respostas):

@@ -1192,5 +1192,359 @@
         "acao": "encerrar",
         "conteudo": "Roonie desligado",
         "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-16 14:16:04",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "o inteligência artificial",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-16 14:16:19",
+        "acao": "resumo_wikipedia",
+        "conteudo": "o inteligência artificial",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-16 14:18:41",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "inteligência artificial",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-16 14:20:33",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "me   inter",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-16 14:24:06",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "buraco neg",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-16 14:24:22",
+        "acao": "resumo_wikipedia",
+        "conteudo": "buraco neg",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-16 14:24:33",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "um buraco negro",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-16 14:25:11",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "buraco negro",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-16 22:15:23",
+        "acao": "abrir",
+        "conteudo": "spotify",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-16 22:16:40",
+        "acao": "fechar",
+        "conteudo": "spotify",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-16 22:16:54",
+        "acao": "pesquisar",
+        "conteudo": "futebol",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-16 22:17:06",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-19 12:23:15",
+        "acao": "abrir",
+        "conteudo": "marvel",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-19 12:36:19",
+        "acao": "abrir",
+        "conteudo": "marvel",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-19 12:36:32",
+        "acao": "abrir",
+        "conteudo": "valora",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-19 13:21:38",
+        "acao": "abrir",
+        "conteudo": "marvel",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-19 13:23:52",
+        "acao": "abrir",
+        "conteudo": "marvel",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-19 13:24:05",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-19 14:33:20",
+        "acao": "comando desconhecido",
+        "conteudo": "pesquisar na twitch otsuka",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-19 14:33:31",
+        "acao": "comando desconhecido",
+        "conteudo": "otsuka xd twit",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-19 14:35:27",
+        "acao": "comando desconhecido",
+        "conteudo": "pesquisar",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-19 14:38:07",
+        "acao": "pesquisar_twitch",
+        "conteudo": "youtube",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-19 14:38:23",
+        "acao": "pesquisar_twitch",
+        "conteudo": "itsuka xd",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-19 14:39:29",
+        "acao": "pesquisar_twitch",
+        "conteudo": "outlook xd",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-19 14:39:42",
+        "acao": "pesquisar_twitch",
+        "conteudo": "tck 10",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-19 14:39:58",
+        "acao": "hora",
+        "conteudo": "14:39",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-19 14:42:26",
+        "acao": "pesquisar_google",
+        "conteudo": "no tik tok caetano",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-19 14:44:49",
+        "acao": "abrir",
+        "conteudo": "reme",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-19 14:45:00",
+        "acao": "abrir",
+        "conteudo": "reme",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-20 15:16:53",
+        "acao": "pesquisar_google",
+        "conteudo": "",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-20 15:17:04",
+        "acao": "pesquisar_google",
+        "conteudo": "futebol",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 15:17:17",
+        "acao": "pesquisar_google",
+        "conteudo": "no tik tok dança",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 15:18:26",
+        "acao": "pesquisar_google",
+        "conteudo": "tik tok dança",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 15:18:38",
+        "acao": "pesquisar_twitch",
+        "conteudo": "tc k10",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 15:18:50",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 15:29:13",
+        "acao": "abrir",
+        "conteudo": "fortnite",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-20 15:31:52",
+        "acao": "abrir",
+        "conteudo": "fortnite",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 15:32:13",
+        "acao": "abrir",
+        "conteudo": "marvel",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 15:32:24",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 20:04:08",
+        "acao": "comando desconhecido",
+        "conteudo": "estudo sobre",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-20 20:04:18",
+        "acao": "comando desconhecido",
+        "conteudo": "estudo sobre a internet",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-20 20:04:40",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 20:05:05",
+        "acao": "comando desconhecido",
+        "conteudo": "estudo de sobre internet",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-20 20:05:16",
+        "acao": "comando desconhecido",
+        "conteudo": "estudo de sobre a internet",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-20 20:06:19",
+        "acao": "comando desconhecido",
+        "conteudo": "estúdio sobre a internet",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-20 20:06:31",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "a internet",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 20:08:48",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "estudo sobre valora",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 20:09:06",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "estudo sobre mar",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 20:09:24",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 21:59:55",
+        "acao": "comando desconhecido",
+        "conteudo": "estúdios arquivos pd",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-20 22:00:09",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "[ML] Introduction to Machine Learning with Python (2017)",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 22:01:18",
+        "acao": "comando desconhecido",
+        "conteudo": "estudo de os arquivos pd",
+        "resultado": "falha"
+    },
+    {
+        "data": "2025-04-20 22:01:32",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "[ML] Introduction to Machine Learning with Python (2017)",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 22:02:49",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "os arquivos pdf",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 22:03:21",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "[ML] Introduction to Machine Learning with Python (2017)",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 22:05:59",
+        "acao": "pesquisa_explicacao",
+        "conteudo": "MLIntroductiontoMachineLearningwithPython2017pdf",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-20 22:07:37",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-21 00:02:52",
+        "acao": "encerrar",
+        "conteudo": "Roonie desligado",
+        "resultado": "sucesso"
+    },
+    {
+        "data": "2025-04-21 00:14:24",
+        "acao": "comando desconhecido",
+        "conteudo": "estúdios arquivos pdf",
+        "resultado": "falha"
     }
 ]

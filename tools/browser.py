@@ -1,9 +1,18 @@
 import webbrowser
 
-def search_google(query):
-    url = f"https://www.google.com/search?q={query}"
-    webbrowser.open(url)
+def search_platform(plataforma, query):
+    query_encoded = query.replace(' ', '%20')
+    
+    urls = {
+        'google': f"https://www.google.com/search?q={query_encoded}",
+        'youtube': f"https://www.youtube.com/results?search_query={query_encoded}",
+        'instagram': f"https://www.instagram.com/explore/search/keyword/?q={query_encoded}",
+        'tiktok': f"https://www.tiktok.com/search?q={query_encoded}",
+        'twitch': f"https://www.twitch.tv/search?term={query_encoded}",
+    }
 
-def search_youtube(query):
-    url = f"https://www.youtube.com/results?search_query={query.replace(' ', '+')}"
-    webbrowser.open(url)
+    plataforma = plataforma.lower()
+    if plataforma in urls:
+        webbrowser.open(urls[plataforma])
+    else:
+        print(f"Plataforma '{plataforma}' não reconhecida.")

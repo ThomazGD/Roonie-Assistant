@@ -33,7 +33,6 @@ def speak(text):
 
     pulsando = False  # para a animação
 
-    
 def pulsar():
     global pulsando, pulsar_direcao, pulsar_tamanho, circle
 
